@@ -26,6 +26,11 @@
     @foreach ($products as $product)
         <h1>{{ $product->name }}</h1>
         <h1>{{ $product->price }}</h1>
-        <a href="{{ route("product.show" , $product) }}">Update</a>
+        <a href="{{ route('product.show', $product) }}">Update</a>
+        <form action="{{ route('product.delete', $product) }}" method="post">
+            @csrf
+            @method('DELETE')
+            <button>Delete</button>
+        </form>
     @endforeach
 @endsection

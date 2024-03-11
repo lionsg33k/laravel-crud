@@ -63,4 +63,9 @@ class ProductController extends Controller
         //* redirect user  to  a specefic route 
         return redirect()->route("product.index");
     }
+//* delete a row  in database
+ public function destroy(Product $product){
+    $product->delete();
+    return back();
+ }
 }
